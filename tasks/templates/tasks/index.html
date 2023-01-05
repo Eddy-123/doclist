@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doclist</title>
+</head>
+<body>
+    <h1>Doclist</h1>
+
+    <form method="post" action="{% url 'add-collection' %}">
+        {% csrf_token %}
+        <input type="text" name="collection-name">
+        <button type="submit">Ajouter</button>
+    </form>
+
+    {% for collection in collections %}
+        <h2>{{ collection.name | safe }}</h2>
+    {% endfor %}
+</body>
+</html>
