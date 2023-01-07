@@ -9,9 +9,9 @@
   - collection (ForeignKey)
 
 ## Features
-[] Add a collection  
+[x] Add a collection  
 [] Delete a collection  
-[] Prevent from adding a double collection  
+[x] Prevent from adding the same collection twice  
 [] Add a task linked to a collection  
 [] Delete a task  
 [] Display tasks of a collection  
