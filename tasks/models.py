@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+
 
 # Create your models here.
 class Collection(models.Model):
@@ -10,7 +12,9 @@ class Collection(models.Model):
         return collection
     def __str__(self):
         return self.name
-
+    def save(self, *args, **kwargs):
+        self.slug = self.slug or slugify(self.name)
+        super().save(*args, **kwargs)
 class Task(models.Model):
     description = models.CharField(max_length=300)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
